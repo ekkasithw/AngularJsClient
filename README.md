@@ -1,2 +1,3 @@
-# tripplanner
-Trip Planner
+# app
+
+a [Sails](http://sailsjs.org) application
