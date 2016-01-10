@@ -10,6 +10,11 @@
         integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
         crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/style.css">
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/dependencies/colorbox.css">
+  <link rel="stylesheet" href="/styles/importer.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <!--STYLES END-->
 </head>
 <body>
   <div class="container">
@@ -27,10 +32,20 @@
         </div>
       </div>
     </div>
-
+    <ng-view></ng-view>
   </div>
 
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
-  <script src="/js/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-resource.min.js"></script>
+  <script src="app.js"></script>
+  <!--SCRIPTS-->
+  <script src="/dependencies/sails.io.js"></script>
+  <script src="/dependencies/jquery.colorbox-min.js"></script>
+  <script src="/controllers/japanController.js"></script>
+  <script src="/controllers/osakaController.js"></script>
+  <script src="/controllers/tokyoController.js"></script>
+  <!--SCRIPTS END-->
 </body>
 </html>
