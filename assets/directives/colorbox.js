@@ -1,3 +1,15 @@
-/**
- * Created by Ekkasith on 1/10/2016.
- */
+
+
+
+
+angular.module('tripPlanner')
+.directive('colorbox', function() {
+
+  return {
+    restrict: 'AC',
+    link: function(scope, element, attrs) {
+      $(element).colorbox(attrs);
+    }
+  };
+
+});

@@ -13,6 +13,8 @@ var moment = require('moment');
 
 module.exports.bootstrap = function(cb) {
 
+  return cb();
+
   var towns = [
     {
       name: 'Tokyo'
@@ -22,26 +24,57 @@ module.exports.bootstrap = function(cb) {
     }
   ];
 
-  var day = new moment('2016-01-30');
-  var totalDays = 7;
 
-  var days = [];
-  for (i = 0; i < totalDays + 1; i++) {
-    days.push({day: day.unix()});
-    day.add(1, 'days');
-  }
+  var days = {
+    Tokyo: [
+      {
+        day: '2016-01-31'
+      },
+      {
+        day: '2016-02-01'
+      },
+      {
+        day: '2016-02-02'
+      },
+      {
+        day: '2016-02-06'
+      }
+    ],
+    Osaka: [
+      {
+        day: '2016-02-03'
+      },
+      {
+        day: '2016-02-04'
+      },
+      {
+        day: '2016-02-05'
+      }
+    ]
+  };
 
   Town.create(towns)
     .then(function(theseTowns) {
-      return [theseTowns, Day.create(days)];
-    })
-    .spread(function(theseTowns, theseDays) {
-      var ids = [];
-      theseDays.forEach(function(thisDay) {
-        ids.push(thisDay.id);
+      var promises = [theseTowns];
+
+      theseTowns.forEach(function(thisTown, index) {
+        var promise = Day.create(days[thisTown.name]);
+        promises.push(promise);
       });
 
-      theseTowns.forEach(function(thisTown) {
+      return promises;
+    })
+    .spread(function() {
+      var args = arguments;
+      var theseTowns = arguments[0];
+
+      theseTowns.forEach(function(thisTown, index) {
+        var ids = [];
+
+        args[index + 1].forEach(function(thisDay) {
+          ids.push(thisDay.id);
+        });
+
         thisTown.days.add(ids);
         thisTown.save();
       });

@@ -33,6 +33,7 @@ var jsFilesToInject = [
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'controllers/**/*.js',
+  'directives/**/*.js',
 
   // Use the "exclude" operator to ignore files
   // '!js/ignore/these/files/*.js'

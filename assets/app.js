@@ -12,14 +12,9 @@
         controller: 'japanController'
       });
 
-      $routeProvider.when('/tokyo', {
-        templateUrl: '/templates/tokyo.html',
-        controller: 'tokyoController'
-      });
-
-      $routeProvider.when('/osaka', {
-        templateUrl: '/templates/osaka.html',
-        controller: 'osakaController'
+      $routeProvider.when('/town/:id', {
+        templateUrl: '/templates/town.html',
+        controller: 'townController'
       });
 
       $routeProvider.otherwise({

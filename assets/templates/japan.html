@@ -8,7 +8,7 @@
       <div class="wrapper-panel">
         <div class="text-big text-center">{{town.name}}</div>
         <div class="row" ng-repeat="day in town.days">
-          <div class="col-md-3">{{day.day * 1000 | date:'dd-MM-yyyy'}}</div>
+          <div class="col-md-3">{{day.day | date:'dd-MM-yyyy'}}</div>
           <div class="col-md-9">
             <ul class="list-inline">
               <li ng-repeat="place in town.places">
