@@ -11,8 +11,8 @@ angular.module('tripPlanner')
     templateUrl: "/templates/dayList.html",
 
     scope: {
-      days: '=',
-      title: '='
+      days: '=days',
+      title: '@title'
     }
 
   };

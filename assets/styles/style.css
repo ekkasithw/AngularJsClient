@@ -74,36 +74,48 @@ a {
   padding: 1em 2em;
 }
 
-.place-wrapper {
+.item-wrapper {
   padding: 1em;
   background-color: #FFFD92;
   border-radius: 10px;
   box-shadow: 5px 5px 10px grey;
-  margin-bottom: 1.5em;
   cursor: pointer;
-  display: inline-block;
   text-align: center;
+  margin-right: 0.9em;
+  margin-left: 0.9em;
+  height: 150px;
 }
 
-.masonry {
-  -moz-column-count:2;
-  -moz-column-gap: 2em;
-  -webkit-column-count:2;
-  -webkit-column-gap: 2em;
-  column-count: 2;
-  column-gap: 2em;
-}
-
-.date-panel {
+/*.date-panel {
   min-height: 5em;
   line-height: 5em;
-}
+}*/
 
 .date-place-panel {
+  padding: 2em 2em;
   min-height: 5em;
   border-radius: 5px;
   box-shadow: 5px 5px 10px grey;
   background-image: url(../images/wood.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.date-place-panel .item-wrapper {
+  margin-right: 0.9em;
+  margin-left: 0.9em;
+  height: 150px;
+}
+
+.over-y-hide {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 639px) {
+
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+
 }

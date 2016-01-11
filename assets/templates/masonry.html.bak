@@ -11,6 +11,7 @@
       <button colorbox inline="true" width="50%" href="#item-form" ng-click="setFormItem({})" class="btn btn-primary">Add</button>
       <div class="hide">
         <form id="item-form">
+          <input type="hidden" ng-model="formItem.town">
           <div class="form-group">
             <img ng-src="{{formItem.imageUrl}}" class="img-responsive img-rounded margin-center margin-bottom">
             <label for="image-url">Image URL</label>
@@ -22,8 +23,7 @@
           </div>
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea rows="5" required id="description" ng-model="formItem.description" class="form-control">
-            </textarea>
+            <textarea rows="5" required id="description" ng-model="formItem.description" class="form-control"></textarea>
           </div>
           <div class="form-group">
             <label for="travel">Travel</label>
@@ -36,9 +36,8 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div draggable drop-target="{{dropTarget}}" colorbox inline="true" width="50%" href="#item-form"
-         class="item-wrapper col-md-5 margin-bottom"
+  <div class="masonry">
+    <div colorbox inline="true" width="50%" href="#item-form" class="item-wrapper"
          ng-repeat="item in items"
          ng-click="setFormItem(item)">
       <div class="margin-bottom"><img ng-src="{{item.imageUrl}}" class="img-responsive img-rounded"></div>
