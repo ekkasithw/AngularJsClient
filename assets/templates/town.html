@@ -4,62 +4,9 @@
 
 <div class="row" ng-controller="townController">
   <div class="col-md-8">
-    <div class="wrapper-panel">
-      <div class="row panel-head">
-        <div class="col-md-6">
-          <span class="text-big">{{town.name | uppercase}}</span>
-        </div>
-      </div>
-      <div class="row date-panel margin-bottom" ng-repeat="day in town.days">
-        <div class="col-md-2 date-panel">{{day.day | date:'dd-MM-yyyy'}}</div>
-        <div class="col-md-10 date-place-panel">
-
-        </div>
-      </div>
-    </div>
+    <day-list days="dayList" title="town.name"></day-list>
   </div>
   <div class="col-md-4">
-    <div class="wrapper-panel">
-      <div class="row panel-head">
-        <div class="col-md-6">
-          <span class="text-big">Places</span>
-        </div>
-        <div class="col-md-6 text-right">
-          <button colorbox inline="true" width="50%" href="#place-form" ng-click="setFormPlace({})" class="btn btn-primary">Add</button>
-          <div class="hide">
-            <form id="place-form">
-              <input type="hidden" ng-model="formPlace.town">
-              <div class="form-group">
-                <img ng-src="{{formPlace.imageUrl}}" class="img-responsive img-rounded margin-center margin-bottom">
-                <label for="image-url">Image URL</label>
-                <input required id="image-url" type="text" ng-model="formPlace.imageUrl" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input required id="name" type="text" ng-model="formPlace.name" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <textarea rows="5" required id="description" ng-model="formPlace.description" class="form-control"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="travel">Travel</label>
-                <textarea rows="5" id="travel" ng-model="formPlace.travel" class="form-control"></textarea>
-              </div>
-              <div class="form-group">
-                <button type="button" class="btn btn-success" ng-click="savePlace(formPlace)">Save</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="masonry">
-        <div colorbox inline="true" width="50%" href="#place-form" class="place-wrapper"
-             ng-repeat="place in town.places" ng-click="setFormPlace(place)">
-          <div class="margin-bottom"><img ng-src="{{place.imageUrl}}" class="img-responsive img-rounded"></div>
-          <div>{{place.name}}</div>
-        </div>
-      </div>
-    </div>
+    <masonry item="places" title="Places" formItem="{}"></masonry>
   </div>
 </div>

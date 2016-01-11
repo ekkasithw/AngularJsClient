@@ -1,0 +1,21 @@
+
+
+
+
+<div class="wrapper-panel">
+  <div class="row panel-head">
+    <div class="col-md-6">
+      <span class="text-big">{{title | uppercase}}</span>
+    </div>
+  </div>
+  <div class="row date-panel margin-bottom" ng-repeat="day in days">
+    <div class="col-md-2 date-panel">{{day.text}}</div>
+    <div class="col-md-10 date-place-panel">
+      <div colorbox inline="true" width="50%" href="#place-form" class="place-wrapper"
+           ng-repeat="item in day.items">
+        <div class="margin-bottom"><img ng-src="{{item.imageUrl}}" class="img-responsive img-rounded"></div>
+        <div>{{item.name}}</div>
+      </div>
+    </div>
+  </div>
+</div>
