@@ -34,7 +34,9 @@ module.exports.routes = {
 
   '/': {
     view: 'index'
-  }
+  },
+
+  'post /day/:id/update-places-order': 'DayController.updatePlacesOrder'
 
   /***************************************************************************
   *                                                                          *

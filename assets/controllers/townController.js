@@ -15,40 +15,32 @@ angular.module('tripPlanner')
   // Models & Resources
 
   $scope.formPlace = {};
-
   $scope.town = {};
-  $scope.townResource = $resource(townBaseUrl, {id: '@id'}, {create: {method: "POST"}, save: {method: "PUT"}});
-
   $scope.places = [];
+  $scope.days = [];
+
+  $scope.townResource = $resource(townBaseUrl, {id: '@id'}, {create: {method: "POST"}, save: {method: "PUT"}});
+  $scope.townDayResource = $resource(townBaseUrl + '/days', {id: '@id'}, {create: {method: "POST"}, save: {method: "PUT"}});
+  $scope.dayPlaceResource = $resource(dayBaseUrl + '/places', {id: '@id'}, {create: {method: "POST"}, save: {method: "PUT"}});
   $scope.placeResource = $resource(placeBaseUrl, {id: '@id'}, {create: {method: "POST"}, save: {method: "PUT"}});
 
   $scope.townResource.get({id: $routeParams.id}).$promise
   .then(function(town) {
     $scope.town = town;
-    return $scope.placeResource.query({town: town.id}).$promise;
+    return $scope.placeResource.query({town: $scope.town.id}).$promise;
   })
   .then(function(places) {
     $scope.places = places;
-    $scope.town.days[0].items = places;
-  });;
-
-
-
-  // ----------------------------------
-  // Methods
-
-  $scope.savePlace = function (formPlace) {
-    formPlace.town = $scope.town.id;
-
-    if (angular.isDefined(formPlace.id)) {
-      formPlace.$save();
-    }
-    else {
-      new $scope.placeResource(formPlace).$save().then(function(newPlace) {
-        $scope.town.places.push(newPlace);
-        $scope.formPlace = {};
+    return $scope.townDayResource.query({id: $scope.town.id}).$promise;
+  })
+  .then(function(days) {
+    $scope.days = days;
+    $scope.days.forEach(function(day) {
+      day.item = $scope.dayPlaceResource.query({
+        id: day.id,
+        town: $scope.town.id
       });
-    }
-  };
+    });
+  });
 
 });

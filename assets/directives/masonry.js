@@ -12,6 +12,7 @@ angular.module('tripPlanner')
 
     scope: {
       items: '=items',
+      itemResource: '=itemResource',
       title: '@title',
       parentId: '@parentId',
       parentKey: '@parentKey',
@@ -36,10 +37,18 @@ angular.module('tripPlanner')
           formItem.$save();
         }
         else {
-          formItem[$scope.parentKey] = formItem[$scope.parentId];
-          new $scope.placeResource(formItem).$save().then(function(newPlace) {
-            $scope.town.places.push(newPlace);
+          formItem[$scope.parentKey] = $scope.parentId;
+          new $scope.itemResource(formItem).$create().then(function(newItem) {
+            $scope.items.push(newItem);
             $scope.formItem = {};
+          });
+        }
+      };
+
+      $scope.deleteFormItem = function(formItem) {
+        if (angular.isDefined(formItem.id)) {
+          formItem.$delete().then(function () {
+            $scope.items.splice($scope.items.indexOf(formItem), 1);
           });
         }
       };

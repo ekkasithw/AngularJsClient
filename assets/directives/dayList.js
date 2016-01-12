@@ -14,7 +14,6 @@ angular.module('tripPlanner')
       days: '=days',
       title: '@title'
     }
-
   };
 
 });

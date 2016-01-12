@@ -31,6 +31,8 @@
           </div>
           <div class="form-group">
             <button type="button" class="btn btn-success" ng-click="saveFormItem(formItem)">Save</button>
+            <button type="button" class="btn btn-danger pull-right" ng-if="formItem.id"
+                    ng-click="deleteFormItem(formItem)">Delete</button>
           </div>
         </form>
       </div>
@@ -38,8 +40,7 @@
   </div>
   <div class="row">
     <div draggable drop-target="{{dropTarget}}" colorbox inline="true" width="50%" href="#item-form"
-         class="item-wrapper col-md-5 margin-bottom"
-         ng-repeat="item in items"
+         class="item-wrapper col-md-5 margin-bottom" data-id="{{item.id}}" ng-repeat="item in items"
          ng-click="setFormItem(item)">
       <div class="margin-bottom"><img ng-src="{{item.imageUrl}}" class="img-responsive img-rounded"></div>
       <div>{{item.name}}</div>

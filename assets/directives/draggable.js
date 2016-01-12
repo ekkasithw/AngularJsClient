@@ -9,7 +9,9 @@ angular.module('tripPlanner')
       restrict: 'AC',
       link: function(scope, element, attrs) {
         $(element).draggable({
-          snap: attrs['dropTarget']
+          connectToSortable: '.date-place-container',
+          helper: "clone",
+          revert: "invalid"
         });
       }
     };
