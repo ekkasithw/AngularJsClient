@@ -12,7 +12,7 @@
       <div class="hide">
         <form id="item-form">
           <div class="form-group">
-            <img ng-src="{{formItem.imageUrl}}" class="img-responsive img-rounded margin-center margin-bottom">
+            <img ng-show="formItem.imageUrl" ng-src="{{formItem.imageUrl}}" class="img-responsive img-rounded margin-center margin-bottom">
             <label for="image-url">Image URL</label>
             <input required id="image-url" type="text" ng-model="formItem.imageUrl" class="form-control">
           </div>

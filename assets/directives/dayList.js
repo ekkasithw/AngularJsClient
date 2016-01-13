@@ -12,7 +12,8 @@ angular.module('tripPlanner')
 
     scope: {
       days: '=days',
-      title: '@title'
+      title: '@title',
+      itemOrderUpdateUrl: '@itemOrderUpdateUrl'
     }
   };
 

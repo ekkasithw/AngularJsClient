@@ -21,10 +21,6 @@ angular.module('tripPlanner')
 
     link: function(scope, element, attrs) {
       scope.formItem = {};
-      element.children('masonry-grid').isotope({
-        itemSelector: '.item-wrapper',
-        layoutMode: 'fitRows'
-      });
     },
 
     controller: function ($scope, $element, $attrs) {

@@ -4,7 +4,7 @@
 
 <div class="row" ng-controller="townController">
   <div class="col-md-8">
-    <day-list days="days" title="{{town.name}}"></day-list>
+    <day-list days="days" title="{{town.name}}" item-order-update-url="{{dayPlaceOrderUpdateUrl}}"></day-list>
   </div>
   <div class="col-md-4">
     <masonry drop-target=".date-place-container" items="places" title="{{'Places'}}" parent-id="{{town.id}}"

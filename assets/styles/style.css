@@ -108,6 +108,14 @@ a {
   overflow-x: hidden;
 }
 
+.sort-wrapper {
+  position: relative;
+  width: 25%;
+  height: auto;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
 @media screen and (max-width: 639px) {
 
 }

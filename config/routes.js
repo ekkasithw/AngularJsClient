@@ -36,7 +36,8 @@ module.exports.routes = {
     view: 'index'
   },
 
-  'post /day/:id/update-places-order': 'DayController.updatePlacesOrder'
+  'post /day-place/update-places-order': 'DayPlaceController.updatePlacesOrder',
+  'post /day-place/get-places-of-town': 'DayPlaceController.getPlacesOfTown'
 
   /***************************************************************************
   *                                                                          *
