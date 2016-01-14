@@ -20,7 +20,7 @@
       <div ng-if="!readOnly" sortable item-order-update-url="{{itemOrderUpdateUrl}}" parent-id="{{day.id}}"
            class="row date-place-container">
         <div class="col-md-4 item-wrapper sort-wrapper margin-bottom" id="item-{{item.id}}" ng-repeat="item in day.items">
-          <div class="margin-bottom"><img ng-src="{{item.imageUrl}}" class="img-responsive img-rounded"></div>
+          <div class=""><img ng-src="{{item.imageUrl}}" class="img-responsive img-rounded"></div>
           <div class="break-word">{{item.name}}</div>
         </div>
       </div>
