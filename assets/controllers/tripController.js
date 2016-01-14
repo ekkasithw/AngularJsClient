@@ -5,6 +5,7 @@
 angular.module('tripPlanner')
 .controller('tripController', function($scope, $resource, $http, townBaseUrl, dayGetPlacesOfTownUrl, colNum) {
 
+  $scope.dayListReadOnly = true;
   $scope.towns = [];
 
   $scope.townResource = $resource(townBaseUrl);

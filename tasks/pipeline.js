@@ -35,6 +35,7 @@ var jsFilesToInject = [
   'app.js',
   'controllers/**/*.js',
   'directives/**/*.js',
+  'filters/**/*.js',
 
   // Use the "exclude" operator to ignore files
   // '!js/ignore/these/files/*.js'

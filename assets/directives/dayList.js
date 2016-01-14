@@ -14,7 +14,7 @@ angular.module('tripPlanner')
       days: '=days',
       title: '@title',
       itemOrderUpdateUrl: '@itemOrderUpdateUrl',
-      readOnly: '@readyOnly'
+      readOnly: '=readOnly'
     }
   };
 

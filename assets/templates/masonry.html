@@ -14,7 +14,7 @@
           <div class="form-group">
             <img ng-show="formItem.imageUrl" ng-src="{{formItem.imageUrl}}" class="img-responsive img-rounded margin-center margin-bottom">
             <label for="image-url">Image URL</label>
-            <input required id="image-url" type="text" ng-model="formItem.imageUrl" class="form-control">
+            <input required id="image-url" type="url" ng-model="formItem.imageUrl" class="form-control">
           </div>
           <div class="form-group">
             <label for="name">Name</label>
@@ -26,8 +26,10 @@
             </textarea>
           </div>
           <div class="form-group">
+            <div class="margin-center" ng-bind-html="formItem.travel | sanitize"></div>
             <label for="travel">Travel</label>
-            <textarea rows="5" id="travel" ng-model="formItem.travel" class="form-control"></textarea>
+            <textarea rows="5" id="travel" ng-model="formItem.travel" class="form-control">
+            </textarea>
           </div>
           <div class="form-group">
             <button type="button" class="btn btn-success" ng-click="saveFormItem(formItem)">Save</button>

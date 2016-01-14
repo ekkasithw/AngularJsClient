@@ -11,6 +11,7 @@ angular.module('tripPlanner')
   // ----------------------------------
   // Models & Resources
 
+  $scope.dayListReadOnly = false;
   $scope.formPlace = {};
   $scope.town = {};
   $scope.places = [];
