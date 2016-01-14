@@ -15,14 +15,13 @@ angular.module('tripPlanner')
             out: function(event, ui) { isOut = 1; },
             over: function(event, ui) {
               isOut = 0; isDupe = 0;
+              ui.item.removeClass('colorbox cboxElement');
+              ui.item.addClass('sort-wrapper');
             },
             receive: function(event, ui) {
               if ($(this).sortable('serialize').indexOf(ui.item.attr('data-id')) > -1) {
                 isDupe = 1;
               }
-
-              ui.item.removeClass('colorbox cboxElement');
-              ui.item.css({width: '25%', height: 'auto', 'margin-left': '0.5em', 'margin-right': '0.5em'});
             },
             beforeStop: function(event, ui) {
               if (isOut) {
@@ -43,6 +42,8 @@ angular.module('tripPlanner')
               }
               else if (! isOut && ! angular.isDefined(ui.item.attr('id'))) {
                 ui.item.attr('id', 'item-' + ui.item.attr('data-id'));
+                ui.item.removeClass('colorbox cboxElement');
+                ui.item.addClass('sort-wrapper');
               }
 
               var data = $.deparam($(this).sortable('serialize'));

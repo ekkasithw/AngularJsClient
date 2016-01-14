@@ -4,10 +4,10 @@
 
 <div class="row" ng-controller="townController">
   <div class="col-md-8">
-    <day-list days="days" title="{{town.name}}" item-order-update-url="{{dayPlaceOrderUpdateUrl}}"></day-list>
+    <day-list days="days" data-title="{{town.name}}" item-order-update-url="{{dayPlaceOrderUpdateUrl}}" read-only="{{false}}"></day-list>
   </div>
   <div class="col-md-4">
-    <masonry drop-target=".date-place-container" items="places" title="{{'Places'}}" parent-id="{{town.id}}"
+    <masonry drop-target=".date-place-container" items="places" data-title="{{'Places'}}" parent-id="{{town.id}}"
              parent-key="{{'town'}}" item-resource="placeResource"></masonry>
   </div>
 </div>

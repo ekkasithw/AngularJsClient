@@ -87,6 +87,25 @@ a {
   text-align: center;
   margin-right: 0.9em;
   margin-left: 0.9em;
+  height: 200px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.sort-wrapper {
+  width: 25% !important;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+.item-wrapper img {
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .date-place-panel {
@@ -108,12 +127,10 @@ a {
   overflow-x: hidden;
 }
 
-.sort-wrapper {
-  position: relative;
-  width: 25%;
-  height: auto;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+a.active, a:focus, a:hover {
+  color: #FFFD92;
+  text-decoration: none;
+  text-shadow: 0px 0px 20px #FFFD92;
 }
 
 @media screen and (max-width: 639px) {

@@ -3,15 +3,8 @@
 
 
 angular.module('tripPlanner')
-.constant("townBaseUrl", "http://localhost:1337/town/:id")
-.constant("placeBaseUrl", "http://localhost:1337/place/:id")
-.constant("dayBaseUrl", "http://localhost:1337/day/:id")
-.constant("dayPlaceBaseUrl", "http://localhost:1337/day-place/:id")
-.constant("dayPlaceOrderUpdateUrl", "http://localhost:1337/day-place/update-places-order")
-.constant("dayGetPlacesOfTownUrl", "http://localhost:1337/day-place/get-places-of-town")
-.constant("colNum", 2)
 .controller('townController', function(
-  $scope, $resource, $http, $routeParams, $filter, townBaseUrl, placeBaseUrl, dayBaseUrl, dayPlaceOrderUpdateUrl,
+  $scope, $resource, $http, $routeParams, townBaseUrl, placeBaseUrl, dayBaseUrl, dayPlaceOrderUpdateUrl,
   dayPlaceOrderUpdateUrl, dayGetPlacesOfTownUrl
 ) {
 
@@ -41,7 +34,6 @@ angular.module('tripPlanner')
   .then(function(days) {
     $scope.days = days;
     $scope.days.forEach(function(day) {
-    // ----------YEAH---------- //
       var dayGetPlacesOfTownData = {
         dayId: day.id,
         townId: $routeParams.id
@@ -49,7 +41,6 @@ angular.module('tripPlanner')
       $http.post(dayGetPlacesOfTownUrl, dayGetPlacesOfTownData).success(function(places) {
         day.items = places;
       });
-    // ------------------------ //
     });
   });
 

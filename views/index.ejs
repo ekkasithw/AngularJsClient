@@ -22,15 +22,15 @@
       <div>JAPAN TRIP 2016</div>
       <div class="row row-equal-height">
         <div class="col-md-5 text-right">
-          <a href="#/town/{{town.id}}" ng-repeat="town in towns | limitTo: getHalfIndex(towns)">
+          <a ng-class="isActive(town.id)" href="#/town/{{town.id}}" ng-repeat="town in towns | limitTo: getHalfIndex(towns)">
             {{town.name | uppercase}}
           </a>
         </div>
         <div class="col-md-2 text-center">
-          <a href="#/japan"><img class="img-responsive img-rounded" src="/images/japan.jpg"></a>
+          <a href="#/trip"><img class="img-responsive img-rounded" src="/images/japan.jpg"></a>
         </div>
         <div class="col-md-5 text-left">
-          <a href="#/town/{{town.id}}" ng-repeat="town in towns | limitTo: getHalfIndex(towns): getHalfIndex(towns)">
+          <a ng-class="isActive(town.id)" href="#/town/{{town.id}}" ng-repeat="town in towns | limitTo: getHalfIndex(towns): getHalfIndex(towns)">
             {{town.name | uppercase}}
           </a>
         </div>
@@ -44,14 +44,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-resource.min.js"></script>
-  <script src="app.js"></script>
+  <script>
+    (function() {
+      // Fix for jquery bbq
+      $.browser = {};
+      $.browser.msie = false;
+      $.browser.version = 0;
+      if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+        $.browser.msie = true;
+        $.browser.version = RegExp.$1;
+      }
+    })();
+  </script>
   <!--SCRIPTS-->
   <script src="/dependencies/sails.io.js"></script>
+  <script src="/dependencies/angular-local-storage.min.js"></script>
   <script src="/dependencies/jquery.ba-bbq.min.js"></script>
   <script src="/dependencies/jquery.colorbox-min.js"></script>
+  <script src="/app.js"></script>
   <script src="/controllers/defaultController.js"></script>
-  <script src="/controllers/japanController.js"></script>
   <script src="/controllers/townController.js"></script>
+  <script src="/controllers/tripController.js"></script>
   <script src="/directives/colorbox.js"></script>
   <script src="/directives/dayList.js"></script>
   <script src="/directives/draggable.js"></script>

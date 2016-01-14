@@ -1,0 +1,11 @@
+
+
+
+
+<div ng-controller="tripController">
+  <div class="row" ng-repeat="row in towns">
+    <div ng-class="'col-md-' + (12 / row.length)" ng-repeat="town in row">
+      <day-list days="town.days" data-title="{{town.name}}" read-only="{{true}}"></day-list>
+    </div>
+  </div>
+</div>
