@@ -10,7 +10,7 @@
     <div class="col-md-6 text-right">
       <button colorbox inline="true" width="50%" href="#item-form" ng-click="setFormItem({})" class="btn btn-primary">Add</button>
       <div class="hide">
-        <form id="item-form">
+        <form id="item-form" ng-submit="saveFormItem(formItem)">
           <div class="form-group">
             <img ng-show="formItem.imageUrl" ng-src="{{formItem.imageUrl}}" class="img-responsive img-rounded margin-center margin-bottom">
             <label for="image-url">Image URL</label>
@@ -32,7 +32,7 @@
             </textarea>
           </div>
           <div class="form-group">
-            <button type="button" class="btn btn-success" ng-click="saveFormItem(formItem)">Save</button>
+            <button type="submit" class="btn btn-success">Save</button>
             <button type="button" class="btn btn-danger pull-right" ng-if="formItem.id"
                     ng-click="deleteFormItem(formItem)">Delete</button>
           </div>
