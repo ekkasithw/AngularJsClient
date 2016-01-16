@@ -2,7 +2,7 @@
 
 
 
-angular.module('tripPlanner')
+angular.module('tripPlaner')
   .directive('droppable', function() {
 
     return {

@@ -2,7 +2,7 @@
 
 
 
-angular.module('tripPlanner')
+angular.module('tripPlaner')
 .filter("sanitize", ['$sce', function($sce) {
   return function(htmlCode){
     return $sce.trustAsHtml(htmlCode);

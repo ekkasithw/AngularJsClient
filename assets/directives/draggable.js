@@ -2,7 +2,7 @@
 
 
 
-angular.module('tripPlanner')
+angular.module('tripPlaner')
   .directive('draggable', function() {
 
     return {

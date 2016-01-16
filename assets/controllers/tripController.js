@@ -2,7 +2,7 @@
 
 
 
-angular.module('tripPlanner')
+angular.module('tripPlaner')
 .controller('tripController', function($scope, $resource, $http) {
 
   //$scope.dayListReadOnly = true;

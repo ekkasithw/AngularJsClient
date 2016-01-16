@@ -2,7 +2,7 @@
 
 
 
-angular.module('tripPlanner')
+angular.module('tripPlaner')
 .controller('townController', function(
   $scope, $resource, $http, $routeParams, townResource, placeResource, dayPlaceResource
 ) {

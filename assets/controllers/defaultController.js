@@ -2,7 +2,7 @@
 
 
 
-angular.module('tripPlanner')
+angular.module('tripPlaner')
 .controller('defaultController', function($scope, $route, townResource) {
   $scope.towns = townResource.query();
   $scope.townId = $route.id || null;
