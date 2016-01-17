@@ -3,13 +3,14 @@
 
 
 angular.module('tripPlaner')
-  .directive('sortable', function($http) {
+  .directive('sortable', function($http, dayPlaceResource) {
 
     return {
         restrict: 'AC',
         link: function(scope, element, attrs) {
           var isOut = 0;
           var isDupe = 0;
+
           $(element).sortable({
             revert: true,
             out: function(event, ui) { isOut = 1; },
@@ -26,14 +27,8 @@ angular.module('tripPlaner')
             beforeStop: function(event, ui) {
               if (isOut) {
                 ui.item.remove();
-
-                var data = $.deparam($(this).sortable('serialize'));
-
-                if (angular.isDefined(attrs['parentId'])) {
-                  data.parentId = attrs['parentId'];
-                }
-
-                $http.post(attrs['itemOrderUpdateUrl'], data).success(function(result) {});
+                var data = getData();
+                dayPlaceResource.updatePlacesOrder(data);
               }
             },
             update: function(event, ui) {
@@ -46,15 +41,24 @@ angular.module('tripPlaner')
                 ui.item.addClass('sort-wrapper');
               }
 
-              var data = $.deparam($(this).sortable('serialize'));
-
-              if (angular.isDefined(attrs['parentId'])) {
-                data.parentId = attrs['parentId'];
-              }
-
-              $http.post(attrs['itemOrderUpdateUrl'], data).success(function(result) {});
+              var data = getData();
+              dayPlaceResource.updatePlacesOrder(data);
             }
           });
+
+          var getData = function() {
+            var data = $.deparam($(element).sortable('serialize'));
+
+            if (angular.isDefined(attrs['dayId'])) {
+              data.dayId = attrs['dayId'];
+            }
+
+            if (angular.isDefined(attrs['townId'])) {
+              data.townId = attrs['townId'];
+            }
+
+            return data;
+          };
         }
       };
   });

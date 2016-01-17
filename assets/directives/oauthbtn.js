@@ -3,7 +3,7 @@
 
 
 angular.module('tripPlaner')
-.directive('oauthBtn', function($window, $location, localStorageService) {
+.directive('oauthBtn', function($window, localStorageService) {
 
   return {
 
@@ -15,13 +15,8 @@ angular.module('tripPlaner')
 
       $window.onmessage = function (e) {
         localStorageService.set('accessToken', e.data);
+        $window.location.reload();
       };
-
-      scope.$watch('accessToken', function(newValue, oldValue) {
-        if (newValue !== oldValue) {
-          $location.path('/trip');
-        }
-      });
 
       scope.openLogInDialog = function() {
         var oauthDialogUrl = 'http://localhost:1338/authorize/?responseType=token&clientId=5698f4931765f6b0019f4130';

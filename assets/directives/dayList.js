@@ -12,6 +12,7 @@ angular.module('tripPlaner')
 
     scope: {
       days: '=days',
+      town: '=town',
       title: '@title',
       itemOrderUpdateUrl: '@itemOrderUpdateUrl',
       readOnly: '=readOnly'

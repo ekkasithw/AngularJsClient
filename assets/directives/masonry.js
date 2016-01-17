@@ -3,7 +3,7 @@
 
 
 angular.module('tripPlaner')
-.directive('masonry', function() {
+.directive('masonry', function(placeResource) {
 
   return {
 
@@ -12,7 +12,6 @@ angular.module('tripPlaner')
 
     scope: {
       items: '=items',
-      itemResource: '=itemResource',
       title: '@title',
       parentId: '@parentId',
       parentKey: '@parentKey',
@@ -31,12 +30,14 @@ angular.module('tripPlaner')
       $scope.saveFormItem = function(formItem) {
         if (angular.isDefined(formItem.id)) {
           formItem.$save();
+          $.colorbox.close();
         }
         else {
           formItem[$scope.parentKey] = $scope.parentId;
-          new $scope.itemResource(formItem).$create().then(function(newItem) {
+          new placeResource(formItem).$create().then(function(newItem) {
             $scope.items.push(newItem);
             $scope.formItem = {};
+            $.colorbox.close();
           });
         }
       };
@@ -45,6 +46,7 @@ angular.module('tripPlaner')
         if (angular.isDefined(formItem.id)) {
           formItem.$delete().then(function () {
             $scope.items.splice($scope.items.indexOf(formItem), 1);
+            $.colorbox.close();
           });
         }
       };
